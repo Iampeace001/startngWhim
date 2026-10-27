@@ -1,0 +1,50 @@
+.nav .header-pop-link { position: relative; isolation: isolate; }
+.header-pop-scene {
+  position: absolute; top: calc(100% + 23px); left: 50%; margin-left: -78px;
+  width: 156px; height: 145px; display: flex; flex-direction: column; align-items: center;
+  padding: 8px 9px; background: var(--card); color: var(--ink); border: 1.5px solid var(--ink);
+  border-radius: 18px; box-shadow: 4px 4px 0 var(--lime),0 9px 22px #292a2318;
+  pointer-events: none; opacity: 0; visibility: hidden; z-index: 50;
+  transform: translateY(-9px) scale(.65) rotate(-6deg); transform-origin: top center;
+  transition: opacity .16s, visibility .16s, transform .36s cubic-bezier(.2,1.5,.4,1);
+}
+.header-pop-scene svg { display: block; width: 100%; height: 105px; flex: none; overflow: visible; }
+.header-pop-caption { display: block; margin-top: 5px; color: var(--ink); text-align: center; white-space: normal; font: 600 10.5px/1.3 Helvetica Neue,Helvetica,Arial,sans-serif; }
+.header-pop-link:is(:hover,:focus-visible) .header-pop-scene { visibility: visible; opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+.header-pop-scene * { animation-play-state: paused !important; }
+.header-pop-link:is(:hover,:focus-visible) .header-pop-scene * { animation-play-state: running !important; }
+.nav-gamepad { transform-origin: 85px 65px; animation: nav-pad-wiggle 1.6s ease-in-out infinite; }
+.nav-game-button { animation: nav-button-press .8s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }.nav-game-button.second { animation-delay: -.4s; }
+.nav-game-cable { transform-origin: 85px 35px; animation: nav-cable-sway 1.6s ease-in-out infinite; }
+.nav-pixel { animation: nav-spark 1.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }.pixel-two { animation-delay: -.7s; }
+.nav-paint-arm { transform-origin: 60px 79px; animation: nav-paint 1.7s ease-in-out infinite; }
+.nav-paint-stroke { stroke-dasharray: 130; stroke-dashoffset: 130; animation: nav-canvas 3.4s ease-in-out infinite; }
+.nav-creator-spark { animation: nav-spark 1.7s ease-in-out infinite; transform-origin: 149px 22px; }
+.nav-book-page { transform-origin: 85px 65px; animation: nav-page-turn 2.4s ease-in-out infinite; }
+.nav-doc-bookmark { animation: nav-bookmark 2.4s ease-in-out infinite; }
+.nav-doc-spark { animation: nav-spark 1.8s ease-in-out infinite; transform-origin: 148px 18px; }
+.nav-trophy { transform-origin: 85px 102px; animation: nav-trophy-celebrate 1.8s ease-in-out infinite; }
+.nav-trophy-glint { transform-origin: 116px 15px; animation: nav-spark 1.2s ease-in-out infinite; }
+.nav-confetti { animation: nav-confetti-fall 1.8s ease-in-out infinite; }.confetti-two { animation-delay: -.9s; }
+@keyframes nav-trophy-celebrate { 0%,100% { transform: rotate(-4deg); } 50% { transform: translateY(-5px) rotate(4deg); } }
+@keyframes nav-confetti-fall { 0% { opacity: 0; transform: translateY(-8px); } 30%,70% { opacity: 1; } 100% { opacity: 0; transform: translateY(12px); } }
+@keyframes nav-pad-wiggle { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-5px) rotate(5deg); } }
+@keyframes nav-button-press { to { transform: scale(.75); } }
+@keyframes nav-cable-sway { 50% { transform: rotate(8deg); } }
+@keyframes nav-spark { 0%,100% { opacity: .25; transform: scale(.75) rotate(-8deg); } 50% { opacity: 1; transform: scale(1.1) rotate(8deg); } }
+@keyframes nav-paint { 0%,100% { transform: rotate(-7deg); } 50% { transform: rotate(9deg); } }
+@keyframes nav-canvas { 0%,10% { stroke-dashoffset: 130; } 65%,90% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 130; } }
+@keyframes nav-page-turn { 0%,15% { transform: perspective(350px) rotateY(0); } 70%,100% { transform: perspective(350px) rotateY(-170deg); } }
+@keyframes nav-bookmark { 50% { transform: translateY(-3px); } }
+@media (max-width: 820px) {
+  .nav .header-pop-scene { top: 50%; left: auto; right: calc(100% + 12px); margin: -61px 0 0; width: 124px; height: 122px; padding: 5px 7px; transform-origin: right center; }
+  .nav .header-pop-scene svg { height: 84px; }.nav .header-pop-caption { font-size: 10px; }
+}
+@media (max-width: 400px) {
+  .nav .header-pop-scene { top: calc(100% + 6px); right: 0; margin: 0; width: 132px; height: 126px; transform-origin: top right; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header-pop-scene { transition: opacity .15s; transform: none; }
+  .header-pop-scene * { animation: none !important; }
+  .nav-paint-stroke { stroke-dashoffset: 0; }
+}

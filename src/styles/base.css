@@ -1,0 +1,33 @@
+/* Reference layout and ordinary controls, without the previous motion effects. */
+.help-dock { position: fixed; left: 20px; bottom: 20px; z-index: 45; }
+.help-trigger { display: flex; align-items: center; gap: 9px; border-radius: 999px; padding: 10px 16px 10px 10px; color: #d8fd71; background: #292a23; box-shadow: 0 8px 25px #292a2330; }
+.help-question { display: grid; place-items: center; border-radius: 50%; width: 26px; height: 26px; background: #d8fd71; color: #292a23; }
+.help-panel { position: fixed; bottom: 85px; left: 20px; z-index: 46; width: min(340px,calc(100vw - 40px)); border: 1px solid var(--ink); border-radius: 20px; padding: 24px; background: var(--card); box-shadow: 6px 6px 0 var(--lime),0 15px 50px #292a2320; }
+.help-panel p { font-size: .95rem; line-height: 1.6; color: var(--muted); }
+.help-panel>a { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding: 14px 0 8px; font-size: .9rem; font-weight: 600; }
+.heart { padding: 0; background: none !important; color: #a6a79d; font-size: 24px; line-height: 1; }
+.heart[aria-pressed=true] { color: #829f27; }
+.board-btn { text-decoration: underline; text-underline-offset: 3px; color: var(--muted); }
+[hidden] { display: none !important; }
+.theme-toggle { font-size: 25px !important; line-height: 1; }
+.nav-account { gap: 10px; }.by { color: var(--muted); }
+.shelf .info .by { font-family: var(--mono); font-size: .78rem; }
+.game .meta { padding-top: 12px; }.game.legendary .info h3 { white-space: normal; }
+.game .art { background: #292a23; }.art .cover-fallback { color: var(--lime); }
+.scroll-jump { font-size: 27px; line-height: 1; }
+a:focus-visible,button:focus-visible,summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.nav-account a:hover { color: var(--on-solid); }
+.game,.shelf .game,.game img,.indie-banner-art .tile { animation: none !important; transition: none !important; }
+.game:hover,.shelf .game:hover,.game:hover img { transform: none !important; }
+.game.legendary::before { display: none; }
+.indie-banner-art .tile.t0:hover { transform: rotate(4deg) !important; z-index: 3; }
+.indie-banner-art .tile.t1:hover { transform: rotate(-6deg) !important; z-index: 2; }
+.indie-banner-art .tile.t2:hover { transform: rotate(-1deg) !important; z-index: 1; }
+@media (max-width: 600px) {
+  .help-dock { left: 16px; bottom: 16px; }.help-panel { left: 16px; bottom: 80px; }
+  .hero h1 { font-size: clamp(3rem,12.5vw,5.2rem); }
+  .shelf ul { grid-template-columns: repeat(2,minmax(0,1fr)); }.shelf li:last-child { display: none; }
+  .hero { overflow: visible; }.grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .info h3 { font-size: 1rem; }.meta { gap: 6px; flex-wrap: wrap; }.board-btn { font-size: .7rem; }
+  .game .meta { padding-top: 6px; }.by { font-size: .85rem; }
+}

@@ -1,4 +1,4 @@
-import type { Game } from "../lib/motion";
+import type { Game } from "../types";
 
 export const games: Game[] = [
   {
